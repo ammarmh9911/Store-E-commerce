@@ -72,7 +72,7 @@ export default function Footer() {
           <div className="col-md-3 mb-4">
             <h5>Contact</h5>
 
-            <p>📍 Kannur, Kerala</p>
+            <p>📍 Kuala Lampur, Malaysia</p>
             <p>📞 +60 12-345-6789</p>
             <p>📧 support@estore.com</p>
 

@@ -1,29 +1,31 @@
-"use client"
+"use client";
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react"
 
-export default function ProductCard(props: any) {
-    const prod = props.product;
-    const [seletedProducts, setSelectedProducts] = useState({})
+export default function ProductCard({ product }: any) {
     const router = useRouter();
 
-    const selectprod = () => {
-        console.log("selected product: ", prod)
-        setSelectedProducts(prod);
-    };
-
     return (
-       <div>
-        <button onClick={() => router.push('/products/${prod.id}')}>Details</button>
-        <Link href={'/products/' +prod.id}>
-        <div onClick={selectprod}>
-            <img src={prod.image} width={50} alt="loading.." />
-            {prod.title}
+        <div className="col-md-3 mb-4">
+            <div className="card h-100 shadow-sm">
+
+                <img src={product.image} className="card-img-top p-3" style={{ height: "220px", objectFit: "contain" }} />
+
+                <div className="card-body d-flex flex-column">
+                    <h6>{product.title}</h6>
+                    <h5 className="text-success">${product.price}</h5>
+                    <div className="mt-auto">
+                        
+                        <Link
+                            href={`/products/${product.id}`}
+                            className="btn btn-outline-dark w-100">
+                            View
+                        </Link>
+
+                    </div>
+                </div>
+            </div>
         </div>
-        </Link>
-       </div>
     );
 }
-
-

@@ -1,22 +1,19 @@
 @import "tailwindcss";
 
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F6FBF7;
+  --foreground: #212529;
+  --primary: #198754;
+  --light-green: #EAF7EE;
+  --card: #ffffff;
+  --border: #E3E8E5;
 }
 
-/* @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-} */
-
+/* Dark mode (optional) */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #F6FBF7;
+    --foreground: #212529;
   }
 }
 
@@ -26,7 +23,74 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.footer{
-  height: 50px;
-  background-color: gray;
+.navbar {
+  background: #E8F5E9 !important;
+  border-bottom: 1px solid #D8E7DD;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.nav-link {
+  font-weight: 500;
+  transition: .3s;
+}
+
+.nav-link:hover {
+  color: var(--primary) !important;
+}
+
+.navbar-brand {
+  transition: .3s;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.card {
+  background: var(--card);
+  border: none;
+  border-radius: 18px;
+  transition: .3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,.12);
+}
+
+.btn-success,
+.btn-primary {
+  border-radius: 30px;
+  transition: .3s;
+}
+
+.btn-success:hover,
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.card-img-top {
+  transition: .35s;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.form-control {
+  border-radius: 30px;
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: none;
+}
+
+
+footer {
+  margin-top: 80px;
+}
+
+section {
+  padding: 80px 0;
 }
