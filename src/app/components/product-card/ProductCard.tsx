@@ -22,7 +22,7 @@ export default function ProductCard({ product }: any) {
                             className="btn btn-outline-dark w-100">
                             View
                         </Link>
-
+                        
                     </div>
                 </div>
             </div>

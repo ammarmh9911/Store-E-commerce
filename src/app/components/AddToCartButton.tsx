@@ -13,3 +13,6 @@ export default function AddToCartButton({ product }: any) {
     </button>
   );
 }
+
+
+
