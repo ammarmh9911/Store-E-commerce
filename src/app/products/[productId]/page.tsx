@@ -7,19 +7,19 @@ export default async function ProductDetail({
   params: Promise<{ productId: string }>;
 }) {
   const { productId } = await params;
-
   const product = await ProductServices.getProductById(productId);
 
   return (
-    <div style={{
-      background: "#F6FBF7",
-      minHeight: "100vh",
-      padding: "50px 0",
-    }}>
+    <div    
+      style={{
+        background: "#F6FBF7",
+        minHeight: "100vh",
+        padding: "50px 0",
+      }}>
+
       <div className="container ">
         <div className="card shadow-lg border-0 p-4">
           <div className="row">
-
             <div className="col-lg-5 text-center">
               <img
                 src={product.image}
@@ -28,7 +28,7 @@ export default async function ProductDetail({
                 style={{
                   maxHeight: "420px",
                   objectFit: "contain",
-                }} />
+                }}/>
             </div>
 
             <div className="col-lg-7 ps-lg-5">
@@ -36,18 +36,15 @@ export default async function ProductDetail({
                 {product.category}
               </p>
 
-              <h2 className="fw-bold">
-                {product.title}
-              </h2>
+              <h2 className="fw-bold">{product.title}</h2>
 
-              <h2 className="text-success fw-bold my-3">
-                ${product.price}
-              </h2>
+              <h2 className="text-success fw-bold my-3">${product.price}</h2>
 
               <p className="text-warning fs-5">
                 ⭐ {product.rating?.rate} / 5
                 <span className="text-secondary fs-6">
-                  {" "}({product.rating?.count} Reviews)
+                  {" "}
+                  ({product.rating?.count} Reviews)
                 </span>
               </p>
 
@@ -55,9 +52,7 @@ export default async function ProductDetail({
 
               <h5>Description</h5>
 
-              <p className="text-secondary">
-                {product.description}
-              </p>
+              <p className="text-secondary">{product.description}</p>
 
               <div className="mt-4">
                 <AddToCartButton product={product} />

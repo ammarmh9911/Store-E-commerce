@@ -1,10 +1,7 @@
 "use client";
-
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 export default function ProductCard({ product }: any) {
-    const router = useRouter();
 
     return (
         <div className="col-md-3 mb-4">
@@ -22,7 +19,7 @@ export default function ProductCard({ product }: any) {
                             className="btn btn-outline-dark w-100">
                             View
                         </Link>
-                        
+
                     </div>
                 </div>
             </div>

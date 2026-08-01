@@ -14,18 +14,15 @@ export default async function HomePage() {
 
   return (
     <div>
-      {/* Hero Section */}
-      <div
-        style={{
+      <div style={{
           background: "linear-gradient(135deg, #1B5E20, #2E7D32, #66BB6A)",
           color: "white",
           padding: "100px 0",
-        }}
-      >
+        }}>
+
         <div className="container">
           <div className="row align-items-center">
 
-            {/* Left Side */}
             <div className="col-lg-6">
 
               <span className="badge bg-light text-success px-3 py-2 mb-3">
@@ -86,7 +83,7 @@ export default async function HomePage() {
                   maxHeight: "500px",
                   objectFit: "cover",
                   border: "5px solid rgba(255,255,255,0.2)"
-                }} />
+                }}/>
 
             </div>
           </div>
@@ -123,11 +120,9 @@ export default async function HomePage() {
         </div>
       </div>
 
-      {/* Features Section */}
       <div
         className="py-5"
-        style={{ backgroundColor: "#F1F8F4" }}
-      >
+        style={{ backgroundColor: "#F1F8F4" }}>
         <div className="container">
 
           <h2 className="text-center fw-bold mb-5 text-success">
@@ -137,10 +132,10 @@ export default async function HomePage() {
           <div className="row g-4">
 
             <div className="col-md-3">
-              <div
-                className="card border-0 shadow rounded-4 text-center p-4 h-100"
-                style={{ backgroundColor: "#ffffff" }}
-              >
+
+              <div className="card border-0 shadow rounded-4 text-center p-4 h-100"
+                style={{ backgroundColor: "#ffffff"}}>
+
                 <h1>🚚</h1>
                 <h4 className="mt-3">Free Shipping</h4>
                 <p className="text-muted">
@@ -152,8 +147,8 @@ export default async function HomePage() {
             <div className="col-md-3">
               <div
                 className="card border-0 shadow rounded-4 text-center p-4 h-100"
-                style={{ backgroundColor: "#ffffff" }}
-              >
+                style={{ backgroundColor: "#ffffff" }}>
+
                 <h1>🔒</h1>
                 <h4 className="mt-3">Secure Payments</h4>
                 <p className="text-muted">
@@ -165,8 +160,8 @@ export default async function HomePage() {
             <div className="col-md-3">
               <div
                 className="card border-0 shadow rounded-4 text-center p-4 h-100"
-                style={{ backgroundColor: "#ffffff" }}
-              >
+                style={{ backgroundColor: "#ffffff" }}>
+
                 <h1>⭐</h1>
                 <h4 className="mt-3">Premium Quality</h4>
                 <p className="text-muted">
@@ -206,8 +201,8 @@ export default async function HomePage() {
           <div className="col-md-3">
             <div
               className="card border-0 shadow rounded-4 text-center p-4 h-100"
-              style={{ backgroundColor: "#E8F5E9" }}
-            >
+              style={{ backgroundColor: "#E8F5E9" }}>
+                
               <h1>👕</h1>
               <h4 className="mt-3">Fashion</h4>
               <p className="text-muted">
@@ -219,8 +214,8 @@ export default async function HomePage() {
           <div className="col-md-3">
             <div
               className="card border-0 shadow rounded-4 text-center p-4 h-100"
-              style={{ backgroundColor: "#F1F8E9" }}
-            >
+              style={{ backgroundColor: "#F1F8E9" }}>
+
               <h1>💻</h1>
               <h4 className="mt-3">Electronics</h4>
               <p className="text-muted">
@@ -232,8 +227,8 @@ export default async function HomePage() {
           <div className="col-md-3">
             <div
               className="card border-0 shadow rounded-4 text-center p-4 h-100"
-              style={{ backgroundColor: "#E8F5E9" }}
-            >
+              style={{ backgroundColor: "#E8F5E9" }}>
+
               <h1>💍</h1>
               <h4 className="mt-3">Jewellery</h4>
               <p className="text-muted">
@@ -245,8 +240,8 @@ export default async function HomePage() {
           <div className="col-md-3">
             <div
               className="card border-0 shadow rounded-4 text-center p-4 h-100"
-              style={{ backgroundColor: "#F1F8E9" }}
-            >
+              style={{ backgroundColor: "#F1F8E9" }}>
+
               <h1>🛍️</h1>
               <h4 className="mt-3">Accessories</h4>
               <p className="text-muted">

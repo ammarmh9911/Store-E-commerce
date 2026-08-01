@@ -63,9 +63,7 @@ export default function Navigation() {
                         </li>
 
                         <li className="nav-item ms-3">
-                            <Link
-                                href="/carts"
-                                className="btn btn-success rounded-pill px-3">
+                            <Link href="/carts" className="btn btn-success rounded-pill px-3">
                                 🛒 Cart
                                 <span className="badge bg-light text-success ms-2">
                                     {totalItems}

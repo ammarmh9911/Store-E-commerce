@@ -4,50 +4,83 @@ import { createContext, useContext, useState } from "react";
 
 const CartContext = createContext<any>(null);
 
-export function CartProvider({ children }: { children: React.ReactNode }) {
+export function CartProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+
   const [cart, setCart] = useState<any[]>([]);
 
-  const addToCart = (product: any) => {
-    setCart((prev) => {
-      const existing = prev.find((item) => item.id === product.id);
+  function addToCart(product:any) {
+    let found = false;
+    let newCart = [];
 
-      if (existing) {
-        return prev.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i].id === product.id) {
+        newCart.push({
+          ...cart[i], quantity: cart[i].quantity + 1,
+        });
+        found = true;
+      } else {
+        newCart.push(cart[i]);
       }
+    }
+                  
+    if (!found) {
+      newCart.push({
+        ...product, quantity: 1,
+      });
+    }
+    setCart(newCart);
+  }
 
-      return [...prev, { ...product, quantity: 1 }];
-    });
-  };
+  function increase(id:number) {
+    let newCart = [];
 
-  const increase = (id: number) => {
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      )
-    );
-  };
+    for (let i = 0; i < cart.length; i++) { 
+      if (cart[i].id === id) {
 
-  const decrease = (id: number) => {
-    setCart((prev) =>
-      prev
-        .map((item) =>
-          item.id === id
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
-        )
-        .filter((item) => item.quantity > 0)
-    );
-  };
+        newCart.push({
+          ...cart[i],
+          quantity: cart[i].quantity + 1,
+        });
 
-  const removeItem = (id: number) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
-  };
+      } else {
+        newCart.push(cart[i]);
+      }
+    }
+    setCart(newCart);
+  }
+
+    function decrease(id:number) {
+    let newCart = [];
+
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i].id === id) {
+        if (cart[i].quantity > 1) {
+          newCart.push({
+            ...cart[i],
+            quantity: cart[i].quantity - 1,
+          });
+        }
+      } else {
+        newCart.push(cart[i]);
+      }
+    }
+    setCart(newCart);
+  }
+
+  
+  function removeItem(id:number) {
+    let newCart = [];
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i].id !== id) {
+        newCart.push(cart[i]);
+      }
+    }
+    setCart(newCart);
+  }
 
   return (
     <CartContext.Provider
@@ -56,12 +89,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         addToCart,
         increase,
         decrease,
-        removeItem,
-      }}
-    >
+        removeItem,}}>
       {children}
     </CartContext.Provider>
   );
 }
 
-export const useCart = () => useContext(CartContext);
+export function useCart() {
+  return useContext(CartContext);
+}
