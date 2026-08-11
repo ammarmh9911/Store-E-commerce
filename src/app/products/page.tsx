@@ -1,4 +1,3 @@
-import React from "react";
 import ProductCard from "../components/product-card/ProductCard";
 import { ProductServices } from "../services/products-services";
 
