@@ -1,6 +1,4 @@
 import Link from "next/link";
-import ProductCard from "./components/product-card/ProductCard";
-import { ProductServices } from "./services/products-services";
 
 export default async function HomePage() {
 
