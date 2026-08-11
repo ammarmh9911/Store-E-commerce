@@ -1,24 +1,17 @@
 import Link from "next/link";
 import ProductCard from "./components/product-card/ProductCard";
-
-async function getProducts() {
-  const response = await fetch("https://fakestoreapi.com/products", {
-    cache: "no-store",
-  });
-
-  return response.json();
-}
+import { ProductServices } from "./services/products-services";
 
 export default async function HomePage() {
-  const products = await getProducts();
+  const products = await ProductServices.getProducts();
 
   return (
     <div>
       <div style={{
-          background: "linear-gradient(135deg, #1B5E20, #2E7D32, #66BB6A)",
-          color: "white",
-          padding: "100px 0",
-        }}>
+        background: "linear-gradient(135deg, #1B5E20, #2E7D32, #66BB6A)",
+        color: "white",
+        padding: "100px 0",
+      }}>
 
         <div className="container">
           <div className="row align-items-center">
@@ -83,7 +76,7 @@ export default async function HomePage() {
                   maxHeight: "500px",
                   objectFit: "cover",
                   border: "5px solid rgba(255,255,255,0.2)"
-                }}/>
+                }} />
 
             </div>
           </div>
@@ -134,7 +127,7 @@ export default async function HomePage() {
             <div className="col-md-3">
 
               <div className="card border-0 shadow rounded-4 text-center p-4 h-100"
-                style={{ backgroundColor: "#ffffff"}}>
+                style={{ backgroundColor: "#ffffff" }}>
 
                 <h1>🚚</h1>
                 <h4 className="mt-3">Free Shipping</h4>
@@ -202,7 +195,7 @@ export default async function HomePage() {
             <div
               className="card border-0 shadow rounded-4 text-center p-4 h-100"
               style={{ backgroundColor: "#E8F5E9" }}>
-                
+
               <h1>👕</h1>
               <h4 className="mt-3">Fashion</h4>
               <p className="text-muted">
