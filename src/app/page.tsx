@@ -3,7 +3,6 @@ import ProductCard from "./components/product-card/ProductCard";
 import { ProductServices } from "./services/products-services";
 
 export default async function HomePage() {
-  const products = await ProductServices.getProducts();
 
   return (
     <div>
@@ -261,7 +260,7 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="row">
+          {/* <div className="row">
 
             {products.slice(0, 4).map((product: any) => (
               <ProductCard
@@ -269,7 +268,7 @@ export default async function HomePage() {
                 product={product} />
             ))}
 
-          </div>
+          </div> */}
 
           <div className="text-center mt-4">
             <Link
