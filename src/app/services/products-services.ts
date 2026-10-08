@@ -2,8 +2,11 @@ import { ServiceBase } from "./service-base";
 
 export class ProductServices extends ServiceBase {
   static async getProducts() {
-    const response = await fetch(
-      ServiceBase.getUrl("/products")
+  const response = await fetch(
+    ServiceBase.getUrl("/products"),
+      {
+        cache: "no-store",
+      }
     );
 
     if (!response.ok) {
@@ -11,7 +14,6 @@ export class ProductServices extends ServiceBase {
     }
 
     const data = await response.json();
-
     return data;
   }
 
