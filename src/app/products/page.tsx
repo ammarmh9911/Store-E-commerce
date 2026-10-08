@@ -1,10 +1,35 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import ProductCard from "../components/product-card/ProductCard";
-import { ProductServices } from "../services/products-services";
 
-export const dynamic = "force-dynamic";
+export default function Products() {
+  const [products, setProducts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-export default async function Products() {
-  const products = await ProductServices.getProducts();
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const response = await fetch(
+          "https://fakestoreapi.com/products"
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch products");
+        }
+
+        const data = await response.json();
+
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProducts();
+  }, []);
 
   return (
     <div
@@ -31,14 +56,20 @@ export default async function Products() {
           </p>
         </div>
 
-        <div className="row">
-          {products.map((p: any) => (
-            <ProductCard
-              key={p.id}
-              product={p}
-            />
-          ))}
-        </div>
+        {loading ? (
+          <div className="text-center py-5">
+            <h4>Loading products...</h4>
+          </div>
+        ) : (
+          <div className="row">
+            {products.map((p: any) => (
+              <ProductCard
+                key={p.id}
+                product={p}
+              />
+            ))}
+          </div>
+        )}
 
       </div>
     </div>
